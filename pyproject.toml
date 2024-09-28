@@ -1,0 +1,88 @@
+[project]
+name = "dls-2024-1"
+version = "0.1.0"
+requires-python = ">= 3.11"
+description = "Add a short description here"
+authors = [{ name = "relicks", email = "axndr.litvinov@gmail.com" }]
+readme = "README.md"
+dependencies = [
+    "jaxtyping>=0.2.34",
+    "matplotlib>=3.9.2",
+    "numpy>=2.1.1",
+    "pandas>=2.2.3",
+    "rich>=13.8.1",
+    "scikit-learn>=1.5.2",
+    "scipy>=1.14.1",
+    "seaborn>=0.13.2",
+    "torch>=2.4.1",
+    "torchvision>=0.19.1",
+    "tqdm>=4.66.5",
+    "typing-extensions>=4.12.2",
+]
+
+[tool.uv]
+dev-dependencies = ["ipykernel>=6.29.5", "ipywidgets>=8.1.5"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
+
+[tool.ruff.lint]
+# isort = { known-first-party = ["libs"] }
+per-file-ignores = { "*.ipynb" = [
+    "F401",
+    "E402",
+    "PLE1142",
+    "PLR2004",
+], "*.pyi" = [
+    "F401",
+] }
+select = [
+    # "D",   # pydocstyle
+    # "ANN", # flake8-annotations
+    "TCH", # flake8-type-checking
+    "FBT", # flake8-boolean-trap
+
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "UP",   # pyupgrade
+    "I",    # isort
+    "PL",   # pylint
+    "RUF",  # ruff-specific
+    "N",    # pep8-naming
+    "C4",   # flake8-comprehensions
+    "B",    # flake8-bugbear
+    "PTH",  # flake8-use-pathlib
+    "TRY",  # tryceratops
+    "PERF", # Perflint 
+    "FURB", # refurb 
+    "PT",   # flake8-pytest-style
+]
+ignore = [
+    "PLR0913", #too-many-arguments
+    "RUF001",  # ambiguous cyrillic letters
+    "RUF002",  # ambiguous cyrillic letters
+    "RUF003",  # ambiguous-unicode-character-comment
+    "ANN101",  # missing-type-self #? deprecated
+    "D202",    # no-blank-line-after-function
+    "N803",    # invalid-argument-name
+    "N806",    # non-lowercase-variable-in-function
+    "N812",    # lowercase-imported-as-non-lowercase
+    "F722",
+]
+
+[tool.pyright]
+pythonVersion = "3.11"
+# venvPath = "./.pixi/envs"
+reportPrivateImportUsage = false
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+#? cSpell Configuration:
+# cspell: words tryceratops FURB pydantic
