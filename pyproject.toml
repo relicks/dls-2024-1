@@ -1,23 +1,25 @@
 [project]
 name = "dls-2024-1"
 version = "0.1.0"
-requires-python = ">= 3.11"
+requires-python = ">= 3.10"
 description = "Add a short description here"
 authors = [{ name = "relicks", email = "axndr.litvinov@gmail.com" }]
 readme = "README.md"
 dependencies = [
     "jaxtyping>=0.2.34",
-    "matplotlib>=3.9.2",
-    "numpy>=2.1.1",
-    "pandas>=2.2.3",
-    "rich>=13.8.1",
-    "scikit-learn>=1.5.2",
-    "scipy>=1.14.1",
-    "seaborn>=0.13.2",
-    "torch>=2.4.1",
-    "torchvision>=0.19.1",
-    "tqdm>=4.66.5",
-    "typing-extensions>=4.12.2",
+    "matplotlib==3.7.1",
+    "numpy==1.26.4",
+    "pandas==2.1.4",
+    "rich==13.8.1",
+    "scikit-learn-intelex>=2024.7.0",
+    "scikit-learn==1.5.2",
+    "scipy==1.13.1",
+    "seaborn==0.13.1",
+    "statsmodels>=0.14.3",
+    "torch==2.4.1",
+    "torchvision==0.19.1",
+    "tqdm==4.66.5",
+    "typing-extensions==4.12.2",
 ]
 
 [tool.uv]
@@ -25,7 +27,7 @@ dev-dependencies = ["ipykernel>=6.29.5", "ipywidgets>=8.1.5"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py310"
 include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
 
 [tool.ruff.lint]
@@ -73,7 +75,7 @@ ignore = [
 ]
 
 [tool.pyright]
-pythonVersion = "3.11"
+pythonVersion = "3.10"
 # venvPath = "./.pixi/envs"
 reportPrivateImportUsage = false
 reportMissingImports = true
@@ -85,4 +87,4 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 #? cSpell Configuration:
-# cspell: words tryceratops FURB pydantic
+# cspell: words tryceratops FURB pydantic intelex
